@@ -1,0 +1,12 @@
+██████╗ ██╗███████╗██████╗
+██╔══██╗██║██╔════╝██╔══██╗
+██████╔╝██║█████╗  ██████╔╝
+██╔═══╝ ██║██╔══╝  ██╔══██╗
+██║     ██║███████╗██║  ██║
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═╝
+
+Spring look for a file named banner.txt in the resources folder
+It can be used to change the banner when the program is run
+
+
+
