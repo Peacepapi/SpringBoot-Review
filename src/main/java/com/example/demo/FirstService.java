@@ -23,6 +23,8 @@ public class FirstService {
     private String customPropFromDiffFile;
     @Value("${my.custom.prop.int}")
     private Integer customInt;
+    @Value("${my.custom.prop}")
+    private String customProp;
     /*
         Dependency injection
      */
@@ -50,6 +52,10 @@ public class FirstService {
 
     public Integer getCustomInt() {
         return customInt;
+    }
+
+    public String getCustomProp() {
+        return customProp;
     }
 
 

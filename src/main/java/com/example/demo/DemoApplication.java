@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Collections;
+
 @SpringBootApplication
 public class DemoApplication {
 
@@ -15,7 +17,12 @@ public class DemoApplication {
 	}
 	*/
 	public static void main(String[] args) {
-		var ctx = SpringApplication.run(DemoApplication.class, args);
+		var app = new SpringApplication(DemoApplication.class);
+		/*
+			This is how to programmatically set the active profile
+			app.setDefaultProperties(Collections.singletonMap("spring.profiles.active", "test"));
+		 */
+		var ctx = app.run(args);
 		/*
 			This isn't the recommended way of creating an instance because we're not using dependency injection here
 				FirstClass firstClass = new FirstClass();
@@ -35,6 +42,7 @@ public class DemoApplication {
 //		System.out.println(firstService.getCustomProp());
 		System.out.println(firstService.getCustomPropFromDiffFile());
 		System.out.println(firstService.getCustomInt());
+		System.out.println(firstService.getCustomProp());
 
 
 	}

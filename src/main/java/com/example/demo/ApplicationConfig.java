@@ -27,6 +27,7 @@ public class ApplicationConfig {
 
     @Bean
     /*
+        @Profile("dev") makes the bean available on dev profile (environment) / Can be used on class level also
         @Qualifier can be used to specify which bean to use when there's multiple bean of the same type.
         Specify it in the class referencing it also
      */
