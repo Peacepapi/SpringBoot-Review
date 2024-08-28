@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @ResponseStatus(HttpStatus.ACCEPTED)
 public class FirstController {
 
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello";
-    }
+//    @GetMapping("/hello")
+//    public String sayHello() {
+//        return "Hello";
+//    }
 
     @PostMapping("/post")
     public String post(@RequestBody String message) {
@@ -23,5 +23,15 @@ public class FirstController {
     @PostMapping("/postOrder")
     public String postOrder(@RequestBody Order order) {
         return "Request accepted: " + order.toString();
+    }
+
+    @GetMapping("/hello/{user-name}")
+    public String sayHelloFriend(@PathVariable("user-name") String userName) {
+        return "Path Variable Hello " + userName;
+    }
+
+    @GetMapping("/hello")
+    public String sayHelloFriendo(@RequestParam("user-name") String userName) {
+        return "Request Param Hello " + userName;
     }
 }
