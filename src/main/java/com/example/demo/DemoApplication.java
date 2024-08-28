@@ -30,9 +30,12 @@ public class DemoApplication {
 		 */
 		//System.out.println(firstClass.sayHello());
 		System.out.println(firstService.tellAStory());
-		System.out.println(firstService.getJavaVersion());
-		System.out.println(firstService.getOSName());
-		System.out.println(firstService.getCustomProp());
+//		System.out.println(firstService.getJavaVersion());
+//		System.out.println(firstService.getOSName());
+//		System.out.println(firstService.getCustomProp());
+		System.out.println(firstService.getCustomPropFromDiffFile());
+		System.out.println(firstService.getCustomInt());
+
 
 	}
 

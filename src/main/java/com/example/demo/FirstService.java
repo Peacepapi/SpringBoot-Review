@@ -2,19 +2,27 @@ package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
+@PropertySource("classpath:custom.properties")
+/*
+    If there's multiple prop sources use
+    @PropertySources({
+        @PropertySource("classpath:custom.properties"),
+        @PropertySource("classpath:custom.properties")
+    })
+ */
 public class FirstService {
 
     private final FirstClass firstClass;
-    private Environment environment;
-
-    @Autowired
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
+    @Value("${new.prop}")
+    private String customPropFromDiffFile;
+    @Value("${my.custom.prop.int}")
+    private Integer customInt;
     /*
         Dependency injection
      */
@@ -36,15 +44,29 @@ public class FirstService {
         return "The dependency is saying : " + firstClass.sayHello();
     }
 
-    public String getJavaVersion() {
-        return "The dependency is saying : " + environment.getProperty("java.version");
+    public String getCustomPropFromDiffFile() {
+        return "The dependency is saying : " + customPropFromDiffFile;
     }
 
-    public String getOSName() {
-        return "The dependency is saying : " + environment.getProperty("os.name");
+    public Integer getCustomInt() {
+        return customInt;
     }
 
-    public String getCustomProp() {
-        return "The dependency is saying : " + environment.getProperty("my.custom.prop");
-    }
+
+    //    private Environment environment;
+//    @Autowired
+//    public void setEnvironment(Environment environment) {
+//        this.environment = environment;
+//    }
+//    public String getJavaVersion() {
+//        return "The dependency is saying : " + environment.getProperty("java.version");
+//    }
+//
+//    public String getOSName() {
+//        return "The dependency is saying : " + environment.getProperty("os.name");
+//    }
+//
+//    public String getCustomProp() {
+//        return "The dependency is saying : " + environment.getProperty("my.custom.prop");
+//    }
 }
