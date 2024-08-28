@@ -22,8 +22,14 @@ public class DemoApplication {
 				System.out.println(firstClass.sayHello());
 		 */
 
-		FirstClass firstClass = ctx.getBean(FirstClass.class);
-		System.out.println(firstClass.sayHello());
+		//FirstClass firstClass = ctx.getBean(FirstClass.class);
+		FirstService firstService = ctx.getBean(FirstService.class);
+		/*
+			Another example for getting a bean. Uses the name instead
+			FirstClass firstClass = ctx.getBean("firstClass", FirstClass.class);
+		 */
+		//System.out.println(firstClass.sayHello());
+		System.out.println(firstService.tellAStory());
 
 	}
 
